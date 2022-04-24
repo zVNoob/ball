@@ -81,7 +81,7 @@ Activate_Input = "dash"
 Activate_Key = "E"
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1285, 567 )
+position = Vector2( 662, 282 )
 
 [node name="MapBorder" type="Node2D" parent="."]
 

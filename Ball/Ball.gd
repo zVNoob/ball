@@ -12,6 +12,7 @@ func _physics_process(delta):
 	#gravity
 	MovementVector.y = min(MovementVector.y + Speed * 2 * delta, 5000)
 	#apply vector to object
+	move_and_slide(MovementVector)
 
 func _on_FailSkill_Acitvated():
 	MovementVector.y = 5000
