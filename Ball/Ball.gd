@@ -28,6 +28,7 @@ func _physics_process(delta):
 
 func _on_FailSkill_Acitvated():
 	MovementVector.y = 5000
+	emit_signal("OnJumpRefill")
 
 func _on_JumpSkill_Acitvated():
 	MovementVector.y = -Speed * 1.6
