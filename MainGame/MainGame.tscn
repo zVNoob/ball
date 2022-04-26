@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://CDButton/CDButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://SKButton/CDButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SkillAsset/fail.svg" type="Texture" id=2]
 [ext_resource path="res://Ball/Ball.tscn" type="PackedScene" id=3]
-[ext_resource path="res://MainGame/square.svg" type="Texture" id=4]
+[ext_resource path="res://square.svg" type="Texture" id=4]
 [ext_resource path="res://SkillAsset/jump.svg" type="Texture" id=5]
 [ext_resource path="res://SkillAsset/fly.svg" type="Texture" id=6]
 [ext_resource path="res://SkillAsset/dash.svg" type="Texture" id=7]
+[ext_resource path="res://Ball/EffectGenerator.gd" type="Script" id=8]
+[ext_resource path="res://MainGame/Dungeon.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 650, 58.75 )
@@ -128,6 +130,21 @@ shape = SubResource( 3 )
 position = Vector2( 1305, 291.562 )
 scale = Vector2( 0.187507, 7.08384 )
 texture = ExtResource( 4 )
+
+[node name="Dungeon" type="Control" parent="."]
+anchor_right = 0.969
+anchor_bottom = 0.776
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 42.3
+margin_bottom = 40.8
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Effect" type="Node2D" parent="."]
+script = ExtResource( 8 )
 
 [connection signal="On_Skill_Acitvated" from="Skill/FailSkill" to="Ball" method="_on_FailSkill_Acitvated"]
 [connection signal="On_Skill_Acitvated" from="Skill/JumpSkill" to="Ball" method="_on_JumpSkill_Acitvated"]
