@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 signal OnJumpRefill
-var MovementVector = Vector2(0,0)
+export var  MovementVector = Vector2(0,0)
 export var Speed = 150
 export var Dash = 50
 #Object/skill effect cooldown 
@@ -9,6 +9,8 @@ var Floating = 0
 var Falling = false
 var Is_Touching_Floor =false
 var Moving = 0.05
+var Pulling = false
+
 func _physics_process(delta):
 	if (get_slide_count()>0) and (!Is_Touching_Floor):
 		for i in range(get_slide_count()):
@@ -22,6 +24,9 @@ func _physics_process(delta):
 					Falling = false
 					MovementVector.y = -Speed * 3
 				else:MovementVector.y = -Speed
+			#Pull area detection -> force a gravity
+			if "Pull" in get_slide_collision(i).collider.name:
+				MovementVector.y = min(MovementVector.y + Speed * 8 * delta, 10000)
 	if get_slide_count()==0:Is_Touching_Floor = false
 	#cooldown helper
 	Floating = max(0, Floating - delta)
@@ -33,7 +38,7 @@ func _physics_process(delta):
 	#elif Input.is_action_pressed("ui_right"):MovementVector.x = Speed
 	#else:MovementVector.x = 0
 	#gravity
-	if Floating == 0:MovementVector.y = min(MovementVector.y + Speed * 2 * delta, 5000)
+	if Floating == 0:MovementVector.y = min(MovementVector.y + Speed * 2 * delta, 10000)
 	#apply vector to object
 	MovementVector = move_and_slide(MovementVector)
 

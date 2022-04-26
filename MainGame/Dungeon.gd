@@ -7,6 +7,7 @@ var Chunks = [
 	preload("res://DungeonChunk/3.tscn"),
 	preload("res://DungeonChunk/4.tscn"),
 	preload("res://DungeonChunk/5.tscn"),
+	preload("res://DungeonChunk/6.tscn"),
 ]
 var Loaded = false
 func _process(_delta):
