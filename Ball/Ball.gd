@@ -16,7 +16,7 @@ func _physics_process(delta):
 			if "Wall" in get_slide_collision(i).collider.name:
 				Is_Touching_Floor = true
 				emit_signal("OnJumpRefill")
-			#Bounce platform detection -> bounce, x4 if falling
+			#Bounce platform detection -> bounce, x3 if falling
 			if "Bounce" in get_slide_collision(i).collider.name:
 				if Falling:
 					Falling = false
