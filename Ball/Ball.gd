@@ -24,7 +24,7 @@ func _physics_process(delta):
 					Falling = false
 					MovementVector.y = -Speed * 3
 				else:MovementVector.y = -Speed
-			#Pull area detection -> force a gravity
+			#Pull floor detection -> force a x4 gravity 
 			if "Pull" in get_slide_collision(i).collider.name:
 				MovementVector.y = min(MovementVector.y + Speed * 8 * delta, 10000)
 	if get_slide_count()==0:Is_Touching_Floor = false
