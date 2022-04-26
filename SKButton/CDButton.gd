@@ -45,6 +45,11 @@ func _physics_process(delta):
 			CD = Cooldown
 			emit_signal("On_Skill_Acitvated")
 
-
 func _on_Ball_OnJumpRefill():
 	Mana = min(1000 * Charge_Max, Mana + 1000)
+
+func _on_button_down():
+	Activating = true
+
+func _onn_button_up():
+	Activating = false

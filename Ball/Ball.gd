@@ -8,7 +8,7 @@ export var Dash = 50
 var Floating = 0
 var Falling = false
 var Is_Touching_Floor =false
-
+var Moving = 0.05
 func _physics_process(delta):
 	if (get_slide_count()>0) and (!Is_Touching_Floor):
 		for i in range(get_slide_count()):
@@ -25,11 +25,13 @@ func _physics_process(delta):
 	if get_slide_count()==0:Is_Touching_Floor = false
 	#cooldown helper
 	Floating = max(0, Floating - delta)
+	Moving = max(0, Moving - delta)
 	if MovementVector.y == 0:Falling = false
 	#common movement
-	if Input.is_action_pressed("ui_left"):MovementVector.x = -Speed
-	elif Input.is_action_pressed("ui_right"):MovementVector.x = Speed
-	else:MovementVector.x = 0
+	if Moving == 0: MovementVector.x = 0
+	#if Input.is_action_pressed("ui_left"):MovementVector.x = -Speed
+	#elif Input.is_action_pressed("ui_right"):MovementVector.x = Speed
+	#else:MovementVector.x = 0
 	#gravity
 	if Floating == 0:MovementVector.y = min(MovementVector.y + Speed * 2 * delta, 5000)
 	#apply vector to object
@@ -55,3 +57,12 @@ func _on_DashSkill_Acitvated():
 func _on_FloatSkill_Acitvated():
 	Floating = 0.1
 	MovementVector.y = 0
+
+
+func _on_TurnLeft():
+	MovementVector.x = -Speed
+	Moving = 0.05
+
+func _on_TurnRight():
+	MovementVector.x = Speed
+	Moving = 0.05

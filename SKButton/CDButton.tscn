@@ -71,3 +71,10 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Button" type="TextureButton" parent="."]
+margin_right = 82.0
+margin_bottom = 82.0
+
+[connection signal="button_down" from="Button" to="." method="_on_button_down"]
+[connection signal="button_up" from="Button" to="." method="_onn_button_up"]
