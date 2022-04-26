@@ -44,3 +44,7 @@ func _physics_process(delta):
 			Mana -= Mana_Per_Use
 			CD = Cooldown
 			emit_signal("On_Skill_Acitvated")
+
+
+func _on_Ball_OnJumpRefill():
+	Mana = min(1000 * Charge_Max, Mana + 1000)
