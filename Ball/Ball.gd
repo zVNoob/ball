@@ -4,19 +4,28 @@ signal OnJumpRefill
 var MovementVector = Vector2(0,0)
 export var Speed = 150
 export var Dash = 50
+#Object/skill effect cooldown 
 var Floating = 0
+var Falling = false
 var Is_Touching_Floor =false
+
 func _physics_process(delta):
-	#refill jump skill one time if collided with floor or celling
 	if (get_slide_count()>0) and (!Is_Touching_Floor):
 		for i in range(get_slide_count()):
+			#Wall detection -> refill jump skill one time
 			if "Wall" in get_slide_collision(i).collider.name:
 				Is_Touching_Floor = true
 				emit_signal("OnJumpRefill")
-				break
+			#Bounce platform detection -> bounce, x4 if falling
+			if "Bounce" in get_slide_collision(i).collider.name:
+				if Falling:
+					Falling = false
+					MovementVector.y = -Speed * 3
+				else:MovementVector.y = -Speed
 	if get_slide_count()==0:Is_Touching_Floor = false
-	#float skill helper
+	#cooldown helper
 	Floating = max(0, Floating - delta)
+	if MovementVector.y == 0:Falling = false
 	#common movement
 	if Input.is_action_pressed("ui_left"):MovementVector.x = -Speed
 	elif Input.is_action_pressed("ui_right"):MovementVector.x = Speed
@@ -28,6 +37,7 @@ func _physics_process(delta):
 
 func _on_FailSkill_Acitvated():
 	MovementVector.y = 5000
+	Falling = true
 	emit_signal("OnJumpRefill")
 
 func _on_JumpSkill_Acitvated():
