@@ -61,9 +61,9 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="ShortCut"]
 self_modulate = Color( 0, 0, 0, 1 )
-margin_right = 20.0
-margin_bottom = 20.0
-rect_scale = Vector2( 4, 4 )
+margin_right = 18.0
+margin_bottom = 18.0
+rect_scale = Vector2( 4.5, 4.5 )
 custom_fonts/font = SubResource( 1 )
 text = "A"
 align = 1
