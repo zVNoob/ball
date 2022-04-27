@@ -21,7 +21,7 @@ extents = Vector2( 2051, 55.9375 )
 extents = Vector2( 52.5, 2046.5 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 64, 2046.75 )
+extents = Vector2( 67.5, 2046.25 )
 
 [node name="MainGame" type="Control"]
 anchor_right = 1.0
@@ -196,7 +196,7 @@ texture = ExtResource( 4 )
 position = Vector2( 1000, 2050 )
 
 [node name="Shape" type="CollisionShape2D" parent="MapBorder/Right"]
-position = Vector2( 68, -3.25 )
+position = Vector2( 64.5, -2.75 )
 shape = SubResource( 3 )
 
 [node name="Asset" type="Sprite" parent="MapBorder/Right"]
