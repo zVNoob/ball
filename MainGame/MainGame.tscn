@@ -40,7 +40,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FailSkill" parent="Skill" instance=ExtResource( 1 )]
+[node name="FallSkill" parent="Skill" instance=ExtResource( 1 )]
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -261,7 +261,7 @@ __meta__ = {
 [node name="Effect" type="Node2D" parent="."]
 script = ExtResource( 8 )
 
-[connection signal="On_Skill_Acitvated" from="Skill/FailSkill" to="Ball" method="_on_FailSkill_Acitvated"]
+[connection signal="On_Skill_Acitvated" from="Skill/FallSkill" to="Ball" method="_on_FailSkill_Acitvated"]
 [connection signal="On_Skill_Acitvated" from="Skill/JumpSkill" to="Ball" method="_on_JumpSkill_Acitvated"]
 [connection signal="On_Skill_Acitvated" from="Skill/FlySkill" to="Ball" method="_on_FlySkill_Acitvated"]
 [connection signal="On_Skill_Acitvated" from="Skill/DashSkill" to="Ball" method="_on_DashSkill_Acitvated"]

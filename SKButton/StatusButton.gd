@@ -61,8 +61,9 @@ func _physics_process(delta):
 	$Skill.value = Mana
 	$ShortCut.value = (Cooldown - CD) / Cooldown * 100
 	CD = max(0,CD - delta)
-	if Input.is_action_just_pressed(Activate_Input):Activating = true
-	if Input.is_action_just_released(Activate_Input):Activating = false
+	if Activate_Input != "":
+		if Input.is_action_just_pressed(Activate_Input):Activating = true
+		if Input.is_action_just_released(Activate_Input):Activating = false
 	if Activating:
 		if ((CD==0) and (Mana>=Mana_Per_Use) and Usable):
 			Mana -= Mana_Per_Use
