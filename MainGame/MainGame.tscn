@@ -15,7 +15,7 @@
 [ext_resource path="res://SkillAsset/right.svg" type="Texture" id=13]
 [ext_resource path="res://SKButton/StatusButton.tscn" type="PackedScene" id=14]
 [ext_resource path="res://SkillAsset/time.svg" type="Texture" id=15]
-[ext_resource path="res://SkillAsset/clip.svg" type="Texture" id=16]
+[ext_resource path="res://SkillAsset/heart.svg" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 2051, 55.9375 )
@@ -120,7 +120,7 @@ anchor_bottom = 1.0
 margin_left = -450.0
 margin_top = -90.0
 margin_right = -450.0
-margin_bottom = 90.0
+margin_bottom = -90.0
 rect_scale = Vector2( 0.9, 0.9 )
 texture_over = ExtResource( 10 )
 Cooldown = 0.05
@@ -199,7 +199,7 @@ SKColor = Color( 0, 0, 0, 1 )
 SKTexture = ExtResource( 16 )
 
 [node name="Ball" parent="." instance=ExtResource( 3 )]
-position = Vector2( 662, 282 )
+position = Vector2( 57, 43 )
 
 [node name="MapBorder" type="Node2D" parent="."]
 script = ExtResource( 11 )

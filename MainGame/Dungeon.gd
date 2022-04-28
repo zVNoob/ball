@@ -33,7 +33,7 @@ func _process(_delta):
 				Temp.rect_position.x = i * 81
 				Temp.rect_position.y = j * 72
 				add_child(Temp)
-				if randi() % 25 == 5:
+				if randi() % 6 == 5:
 					var Buf = Buff[randi() % len(Buff)].instance()
 					Buf.position.x = i * 81 + 40.5
 					Buf.position.y = j * 72 + 36
