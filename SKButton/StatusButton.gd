@@ -9,6 +9,7 @@ export var Restore_Per_Sec = 100
 export var Mana_Per_Use = 1000
 export var BlankCooldown = 0.25
 export var SKColor = Color(1,0,1,1)
+export (StreamTexture) var SKTexture 
 export var TimeMode = false
 var Mana = 0.0
 var CD = 0.0
@@ -19,6 +20,7 @@ var BlankFadeOut = true
 signal On_Skill_Activated
 
 func _ready():
+	$Skill.texture_over = SKTexture
 	$Skill.tint_progress = SKColor
 	if Activate_Input == "":
 		$ShortCut.visible = false

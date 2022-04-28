@@ -4,6 +4,7 @@ signal OnJumpRefill
 export var  MovementVector = Vector2(0,0)
 export var Speed = 150
 export var Dash = 50
+
 #Object/skill effect cooldown 
 var Floating = 0
 var Falling = false
