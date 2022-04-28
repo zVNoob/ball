@@ -51,5 +51,5 @@ func _on_Ball_OnJumpRefill():
 func _on_button_down():
 	Activating = true
 
-func _onn_button_up():
+func _on_button_up():
 	Activating = false

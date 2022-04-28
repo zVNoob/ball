@@ -25,7 +25,7 @@ func _on_FlyBuff(body):
 		var Temp = Target.get_node("FlySkill")
 		var Choose = randi() % 2
 		if Choose == 0:Temp.Restore_Per_Sec += 50
-		if Choose == 1:Temp.Mana_Per_Use * 9.5 /10
+		if Choose == 1:Temp.Mana_Per_Use *= 0.95 
 		queue_free()
 
 

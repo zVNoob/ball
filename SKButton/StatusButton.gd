@@ -17,6 +17,8 @@ var Activating = false
 var Usable = true
 var BlankCD = 0.25
 var BlankFadeOut = true
+var Emptied = false
+signal On_Status_Empty
 signal On_Skill_Activated
 
 func _ready():
@@ -28,8 +30,12 @@ func _ready():
 func _physics_process(delta):
 	#status handler
 	value = Value / MaxValue * 1000
+	if (Value == 0) and (!Emptied):
+		emit_signal("On_Status_Empty")
+		Emptied = true
 	#Time effect (it is hard bruh)
 	if TimeMode:
+		$ShortCut/Label.text = str(get_parent().get_parent().get_node("Dungeon").Level)
 		Value = max(0, Value - delta)
 		if value>750:
 			tint_progress = Color(0,(1000 - value)/250,1,1)

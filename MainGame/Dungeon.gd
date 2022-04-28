@@ -1,5 +1,7 @@
 extends Control
 
+export var Level = 1
+var Loaded = false
 var Chunks = []
 var Buff = []
 func _ready():
@@ -22,7 +24,6 @@ func _ready():
 				Buff.append(load("res://DungeonBuff/"+FileName))
 		FileName = ChunkLoader.get_next()
 	ChunkLoader.list_dir_end()
-var Loaded = false
 func _process(_delta):
 	if !Loaded:
 		randomize()

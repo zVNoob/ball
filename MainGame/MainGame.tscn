@@ -261,6 +261,21 @@ __meta__ = {
 [node name="Effect" type="Node2D" parent="."]
 script = ExtResource( 8 )
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="ColorRect"]
+margin_left = 501.0
+margin_top = 268.0
+margin_right = 513.0
+margin_bottom = 288.0
+text = "asdasdasdasdasdsa"
+
 [connection signal="On_Skill_Acitvated" from="Skill/FallSkill" to="Ball" method="_on_FailSkill_Acitvated"]
 [connection signal="On_Skill_Acitvated" from="Skill/JumpSkill" to="Ball" method="_on_JumpSkill_Acitvated"]
 [connection signal="On_Skill_Acitvated" from="Skill/FlySkill" to="Ball" method="_on_FlySkill_Acitvated"]
